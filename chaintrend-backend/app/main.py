@@ -98,8 +98,8 @@ def indicators(coin: str = Query(...)):
 @app.get("/predict")
 def predict(coin: str = Query(...), horizon: str = Query("7d")):
     coin = _validate_coin(coin)
-    df, source = get_daily_ohlcv(coin, days=90)
-    if len(df) < 40:
+    df, source = get_daily_ohlcv(coin, days=730)
+    if len(df) < 100:
         raise HTTPException(status_code=422, detail="Not enough history to train a model for this coin yet.")
     result = predict_next(coin, df)
     result["dataSource"] = source
@@ -115,7 +115,7 @@ def predict(coin: str = Query(...), horizon: str = Query("7d")):
 @app.get("/models/metrics")
 def models_metrics(coin: str = Query("ETH")):
     coin = _validate_coin(coin)
-    df, source = get_daily_ohlcv(coin, days=90)
+    df, source = get_daily_ohlcv(coin, days=730)
     trained = train_models(coin, df)
 
     regression_table = [
