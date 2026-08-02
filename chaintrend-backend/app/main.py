@@ -99,7 +99,7 @@ def indicators(coin: str = Query(...)):
 def predict(coin: str = Query(...), horizon: str = Query("7d")):
     coin = _validate_coin(coin)
     df, source = get_daily_ohlcv(coin, days=730)
-    if len(df) < 120:
+    if len(df) < 60:
         raise HTTPException(status_code=422, detail="Not enough history to train a model for this coin yet.")
     result = predict_next(coin, df)
     result["dataSource"] = source
