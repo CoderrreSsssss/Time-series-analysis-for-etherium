@@ -88,8 +88,11 @@ def _fetch_from_coingecko(coin_symbol: str, days: int) -> pd.DataFrame:
         close=("close", "last"), volume=("volume", "last"),
     )
     merged = merged.sort_values("date").reset_index(drop=True)
-    return merged[["date", "open", "high", "low", "close", "volume"]]
 
+    if len(merged) < 100:
+        raise ValueError(f"CoinGecko returned too few candles ({len(merged)}) — using backup data instead")
+
+    return merged[["date", "open", "high", "low", "close", "volume"]]
 
 def _generate_synthetic(coin_symbol: str, days: int) -> pd.DataFrame:
     """Deterministic offline fallback — mirrors the frontend's mock generator logic."""
