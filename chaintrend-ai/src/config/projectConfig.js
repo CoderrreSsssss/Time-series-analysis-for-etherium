@@ -20,12 +20,12 @@ export const projectConfig = {
 
   // Update these with your real academic details.
   academic: {
-    studentName: 'Your Name Here',
-    university: 'Your University Name',
-    course: 'B.Tech / M.Tech — Computer Science (Data Science / AI)',
-    mentor: 'Dr. Mentor Name',
+    studentName: 'Dhruv Khurana',
+    university: 'Akal University',
+    course: 'BCA-AI-ML',
+    mentor: 'Ms Nancy Mittal',
     session: '2025 – 2026',
-    projectType: 'Final Year / Capstone Project',
+    projectType: 'Internship Project',
   },
 
   disclaimer:
@@ -42,7 +42,7 @@ export const projectConfig = {
     lastTrained: '2026-06-30',
     trainingPeriod: '2019-01-01 → 2026-05-31',
     testingPeriod: '2026-06-01 → 2026-06-30',
-    status: 'Live', // 'mock' | 'live'
+    status: 'Live', 
   },
 
   coins: [
