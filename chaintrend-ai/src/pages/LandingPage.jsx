@@ -7,6 +7,7 @@ import {
 import TopNav from '../components/layout/TopNav'
 import Footer from '../components/layout/Footer'
 import Disclaimer from '../components/common/Disclaimer'
+import ModelStatusBadge from '../components/common/ModelStatusBadge'
 import NetworkBadge from '../components/common/NetworkBadge'
 import HeroPreviewCard from '../components/landing/HeroPreviewCard'
 import { projectConfig } from '../config/projectConfig'
