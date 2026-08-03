@@ -48,16 +48,12 @@ export default function ForecastPage() {
         }
       />
 
-      <div className="card mb-6 flex items-start gap-3 border-sideways/20 bg-sideways-soft/30 p-4">
-      
-
       {isThirtyDay ? (
         <div className="card flex flex-col items-center justify-center gap-3 p-16 text-center">
           <CalendarDays className="h-8 w-8 text-slate-500" />
           <p className="text-sm font-semibold text-slate-200">30-Day Forecast — Coming with the trained model</p>
           <p className="max-w-md text-sm text-slate-500">
-            Longer-horizon forecasting requires the full LSTM / hybrid ensemble model described in the
-            Methodology page. This placeholder will call the same <code className="text-brand-300">getPrediction(coin, '30d')</code> function once the backend is live.
+            Longer-horizon forecasting requires the full model pipeline described in the Methodology page.
           </p>
         </div>
       ) : (
@@ -75,7 +71,7 @@ export default function ForecastPage() {
               Array.from({ length: 4 }).map((_, i) => <CardSkeleton key={i} />)
             ) : (
               <>
-                <SummaryStat label="Expected Return" value={formatPercent(horizon === '1d' ? prediction.expectedReturn : prediction.sevenDayReturn)} color={changeColor(prediction.expectedReturn)} />
+                <SummaryStat label="Expected Return" value={formatPercent(horizon === '1d' ? prediction.expectedReturn : prediction.sevenDayReturn ?? prediction.expectedReturn)} color={changeColor(prediction.expectedReturn)} />
                 <SummaryStat label="Predicted Minimum" value={formatCurrency(Math.min(...prediction.forecast.map((f) => f.lower)))} />
                 <SummaryStat label="Predicted Maximum" value={formatCurrency(Math.max(...prediction.forecast.map((f) => f.upper)))} />
                 <SummaryStat label="Confidence Score" value={`${Math.round(prediction.confidence * 100)}%`} />
