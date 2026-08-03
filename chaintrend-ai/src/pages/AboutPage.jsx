@@ -41,7 +41,7 @@ export default function AboutPage() {
             <li>Persist trained models to disk instead of retraining on each request.</li>
             <li>Add live on-chain data (gas fees, DeFi TVL) using Etherscan/BscScan/TronScan API keys for richer blockchain-network features.</li>
           </ul>
-
+</div>
         <div className="space-y-5">
           <div className="card p-6">
             <p className="flex items-center gap-2 text-sm font-semibold text-white"><GraduationCap className="h-4 w-4 text-brand-400" /> Academic Details</p>
