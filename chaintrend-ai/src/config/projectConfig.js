@@ -42,7 +42,7 @@ export const projectConfig = {
     lastTrained: '2026-06-30',
     trainingPeriod: '2019-01-01 → 2026-05-31',
     testingPeriod: '2026-06-01 → 2026-06-30',
-    status: 'mock', // 'mock' | 'live'
+    status: 'Live', // 'mock' | 'live'
   },
 
   coins: [
