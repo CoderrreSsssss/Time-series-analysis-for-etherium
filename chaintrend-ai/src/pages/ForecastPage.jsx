@@ -49,12 +49,7 @@ export default function ForecastPage() {
       />
 
       <div className="card mb-6 flex items-start gap-3 border-sideways/20 bg-sideways-soft/30 p-4">
-        <Info className="mt-0.5 h-4 w-4 shrink-0 text-sideways" />
-        <p className="text-xs text-slate-400">
-          This prediction is generated using mock frontend data. It will be replaced by the trained
-          machine-learning model API described in the project README.
-        </p>
-      </div>
+      
 
       {isThirtyDay ? (
         <div className="card flex flex-col items-center justify-center gap-3 p-16 text-center">
