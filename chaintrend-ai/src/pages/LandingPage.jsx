@@ -49,10 +49,8 @@ export default function LandingPage() {
               <span className="badge border-brand-500/30 bg-brand-500/10 text-brand-300">
                 <GraduationCap className="h-3.5 w-3.5" /> University AI/ML Project
               </span>
-              <span className="badge border-sideways/30 bg-sideways-soft text-sideways">
-                <Sparkles className="h-3.5 w-3.5" /> Mock Prediction Mode
-              </span>
-            </div>
+                <ModelStatusBadge />
+              </div>
 
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-[3.4rem] lg:leading-[1.05]">
               Multi-Chain Crypto Intelligence <span className="text-brand-400">and Forecasting</span>
