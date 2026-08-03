@@ -14,9 +14,8 @@ export default function AboutPage() {
           <p className="mt-2 text-sm leading-relaxed text-slate-400">
             {projectConfig.brand.name} is a {projectConfig.academic.projectType.toLowerCase()} that analyses and
             forecasts prices across Ethereum, BNB, and TRON, using Bitcoin as a market benchmark. The current
-            build focuses entirely on a production-quality frontend with realistic mock data, a clean API
-            service layer, and a component architecture designed so a trained machine-learning backend can be
-            plugged in later without any UI redesign.
+            build combines a production-quality frontend with a real Python/FastAPI backend that fetches live
+            market data and trains machine-learning models for prediction and trend classification.
           </p>
 
           <h3 className="mt-6 text-sm font-semibold text-white">Main Objectives</h3>
@@ -35,13 +34,15 @@ export default function AboutPage() {
             <li>Blockchain-network metrics (gas fees, transaction counts) are estimated placeholders unless live explorer API keys are configured.</li>
             <li>This project is for academic demonstration only and is not investment advice.</li>
           </ul>
-<h3 className="mt-6 text-sm font-semibold text-white">Future Scope</h3>
+
+          <h3 className="mt-6 text-sm font-semibold text-white">Future Scope</h3>
           <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm text-slate-400">
             <li>Add ARIMA and LSTM models to the regression comparison for a true hybrid ensemble.</li>
             <li>Persist trained models to disk instead of retraining on each request.</li>
             <li>Add live on-chain data (gas fees, DeFi TVL) using Etherscan/BscScan/TronScan API keys for richer blockchain-network features.</li>
           </ul>
-</div>
+        </div>
+
         <div className="space-y-5">
           <div className="card p-6">
             <p className="flex items-center gap-2 text-sm font-semibold text-white"><GraduationCap className="h-4 w-4 text-brand-400" /> Academic Details</p>
@@ -69,7 +70,7 @@ export default function AboutPage() {
           <div className="card p-6">
             <p className="flex items-center gap-2 text-sm font-semibold text-white"><Cpu className="h-4 w-4 text-brand-400" /> Technology Stack</p>
             <div className="mt-3 flex flex-wrap gap-1.5">
-              {['React 18', 'Vite', 'Tailwind CSS', 'React Router', 'Recharts', 'Lightweight Charts', 'Framer Motion', 'Lucide React', 'Axios', 'Context API', 'date-fns'].map((t) => (
+              {['React 18', 'Vite', 'Tailwind CSS', 'React Router', 'Recharts', 'Lightweight Charts', 'Framer Motion', 'Lucide React', 'Axios', 'Context API', 'date-fns', 'FastAPI', 'scikit-learn', 'pandas'].map((t) => (
                 <span key={t} className="badge border-border text-slate-400">{t}</span>
               ))}
             </div>
@@ -80,11 +81,12 @@ export default function AboutPage() {
       <div className="mt-6 card flex items-start gap-3 p-5">
         <Rocket className="mt-0.5 h-5 w-5 shrink-0 text-brand-400" />
         <div>
-          <p className="text-sm font-semibold text-white">Planned ML Architecture</p>
+          <p className="text-sm font-semibold text-white">ML Architecture</p>
           <p className="mt-1.5 text-sm text-slate-400">
-            A hybrid ensemble combining gradient-boosted trees (XGBoost) for tabular technical features with
-            an LSTM network for sequential price patterns, blended with a classical ARIMA baseline for
-            comparison. See the Methodology page for the full pipeline.
+            Four regression models (Naive Baseline, Linear Regression, Random Forest, Gradient Boosting) are
+            trained live via scikit-learn with a chronological 80/20 train/test split, and the best performer
+            is selected automatically by lowest RMSE. A separate Random Forest classifier predicts Bullish,
+            Sideways, or Bearish trend. ARIMA and LSTM are planned additions — see the Methodology page.
           </p>
         </div>
       </div>
