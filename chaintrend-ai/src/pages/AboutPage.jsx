@@ -29,18 +29,18 @@ export default function AboutPage() {
 
           <h3 className="mt-6 text-sm font-semibold text-white">Limitations</h3>
           <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm text-slate-400">
-            <li>All prices, predictions, and network metrics are currently generated mock data.</li>
-            <li>No real machine-learning model is trained or connected yet.</li>
+            <li>Price data is fetched live from CoinGecko's public API, with an automatic fallback to deterministic synthetic data if the free API is rate-limited or unreachable.</li>
+            <li>Regression (Linear Regression, Random Forest, Gradient Boosting) and trend-classification (Random Forest) models are trained live on real historical data with a chronological train/test split.</li>
+            <li>ARIMA and LSTM are not yet implemented — they are documented as planned future work in the Methodology page.</li>
+            <li>Blockchain-network metrics (gas fees, transaction counts) are estimated placeholders unless live explorer API keys are configured.</li>
             <li>This project is for academic demonstration only and is not investment advice.</li>
           </ul>
-
-          <h3 className="mt-6 text-sm font-semibold text-white">Future Scope</h3>
+<h3 className="mt-6 text-sm font-semibold text-white">Future Scope</h3>
           <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm text-slate-400">
-            <li>Train and deploy the hybrid ensemble model described in the Methodology page.</li>
-            <li>Connect to a live FastAPI backend using the existing <code className="text-brand-300">src/services/api.js</code> layer.</li>
-            <li>Add live on-chain data (gas fees, DeFi TVL) for richer blockchain-network features.</li>
+            <li>Add ARIMA and LSTM models to the regression comparison for a true hybrid ensemble.</li>
+            <li>Persist trained models to disk instead of retraining on each request.</li>
+            <li>Add live on-chain data (gas fees, DeFi TVL) using Etherscan/BscScan/TronScan API keys for richer blockchain-network features.</li>
           </ul>
-        </div>
 
         <div className="space-y-5">
           <div className="card p-6">
