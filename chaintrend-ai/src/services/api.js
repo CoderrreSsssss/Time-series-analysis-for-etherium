@@ -161,6 +161,7 @@ export function mapPredictionResponse(apiResponse) {
     expectedReturn: apiResponse.expected_return,
     trend: apiResponse.trend,
     confidence: apiResponse.confidence,
+    probabilities: apiResponse.probabilities || { bullish: 0.34, sideways: 0.33, bearish: 0.33 },
     forecast: (apiResponse.forecast || []).map((f) => ({
       date: f.date,
       price: f.price,
